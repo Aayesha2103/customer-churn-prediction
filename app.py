@@ -276,44 +276,80 @@ st.markdown(
             font-size: 0.86rem !important;
         }
 
-        /* Inputs */
-        div[data-baseweb="select"] > div,
-        div[data-baseweb="input"] > div {
-            background: #111827 !important;
-            border-color: #263248 !important;
+        /* ---------- INPUTS ---------- */
+
+        /* Explicit widget colors so selected values stay readable on Streamlit Cloud. */
+        div[data-baseweb="select"] > div {
+            background-color: #f8fafc !important;
+            border: 1px solid #dbe2ea !important;
             border-radius: 11px !important;
-        }
-
-        /* ---------- INPUT TEXT VISIBILITY ---------- */
-
-        /* Keep the light input boxes, but use dark text so values are readable. */
-        input, textarea {
-            color: #172033 !important;
-            -webkit-text-fill-color: #172033 !important;
-        }
-
-        div[data-baseweb="select"] span {
             color: #172033 !important;
         }
 
+        div[data-baseweb="select"] div,
+        div[data-baseweb="select"] span,
         div[data-baseweb="select"] input {
             color: #172033 !important;
             -webkit-text-fill-color: #172033 !important;
         }
 
-        /* Dropdown menu options */
-        [role="listbox"] [role="option"] {
-            color: #172033 !important;
-            background: #ffffff !important;
-        }
-
-        [role="listbox"] [role="option"] span {
+        div[data-baseweb="select"] svg {
+            fill: #172033 !important;
             color: #172033 !important;
         }
 
-        /* Number input +/- controls */
+        div[data-testid="stNumberInput"] > div {
+            background-color: #f8fafc !important;
+            border: 1px solid #dbe2ea !important;
+            border-radius: 11px !important;
+        }
+
+        div[data-testid="stNumberInput"] input,
+        div[data-baseweb="input"] input {
+            background-color: transparent !important;
+            color: #172033 !important;
+            -webkit-text-fill-color: #172033 !important;
+            caret-color: #172033 !important;
+        }
+
         div[data-testid="stNumberInput"] button {
             color: #172033 !important;
+            background-color: transparent !important;
+        }
+
+        div[data-testid="stNumberInput"] button svg {
+            fill: #172033 !important;
+            color: #172033 !important;
+        }
+
+        [role="listbox"],
+        [data-baseweb="menu"] {
+            background-color: #ffffff !important;
+            color: #172033 !important;
+        }
+
+        [role="listbox"] [role="option"],
+        [data-baseweb="menu"] li {
+            background-color: #ffffff !important;
+            color: #172033 !important;
+        }
+
+        [role="listbox"] [role="option"] *,
+        [data-baseweb="menu"] li * {
+            color: #172033 !important;
+        }
+
+        [role="listbox"] [role="option"]:hover,
+        [data-baseweb="menu"] li:hover {
+            background-color: #eef2ff !important;
+            color: #172033 !important;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #64748b !important;
+            -webkit-text-fill-color: #64748b !important;
+            opacity: 1 !important;
         }
 
         /* ---------- BUTTON ---------- */
