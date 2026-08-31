@@ -656,18 +656,31 @@ render_markup("""
             font-weight: 500 !important;
         }
 
+        /* Keep the spinner controls the same light color as the field */
         div[data-baseweb="input"] button,
-        [data-testid="stNumberInput"] button {
-            color: #172033 !important;
-            -webkit-text-fill-color: #172033 !important;
-            background: transparent !important;
+        [data-testid="stNumberInput"] button,
+        [data-testid="stNumberInput"] button:hover,
+        [data-testid="stNumberInput"] button:focus {
+            color: #334155 !important;
+            -webkit-text-fill-color: #334155 !important;
+            background: #f8fafc !important;
             opacity: 1 !important;
+            border: 0 !important;
         }
 
         div[data-baseweb="input"] button svg,
         [data-testid="stNumberInput"] button svg {
-            fill: #172033 !important;
-            color: #172033 !important;
+            fill: #334155 !important;
+            color: #334155 !important;
+            stroke: #334155 !important;
+            opacity: 1 !important;
+        }
+
+        /* Streamlit hosted layout can wrap the +/- controls in an extra div. */
+        [data-testid="stNumberInput"] [data-baseweb="input"],
+        [data-testid="stNumberInput"] [data-baseweb="input"] > div,
+        [data-testid="stNumberInput"] [data-baseweb="input"] > div > div {
+            background: #f8fafc !important;
             opacity: 1 !important;
         }
 
