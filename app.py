@@ -625,6 +625,54 @@ render_markup("""
 
 
         /* ========================================================
+           DEPLOYMENT-SAFE NUMBER INPUT OVERRIDE
+
+           Streamlit/BaseWeb can change the wrapper hierarchy between
+           local and hosted environments. These broader selectors make
+           the number fields keep the same light appearance everywhere.
+           ======================================================== */
+
+        div[data-baseweb="input"] {
+            background: #f8fafc !important;
+            border: 1px solid #dbe2ea !important;
+            border-radius: 11px !important;
+            opacity: 1 !important;
+        }
+
+        div[data-baseweb="input"] > div,
+        div[data-baseweb="input"] > div > div {
+            background: #f8fafc !important;
+            opacity: 1 !important;
+        }
+
+        div[data-baseweb="input"] input,
+        div[data-baseweb="input"] input[type="number"],
+        [data-testid="stNumberInput"] input {
+            background: #f8fafc !important;
+            color: #172033 !important;
+            -webkit-text-fill-color: #172033 !important;
+            caret-color: #172033 !important;
+            opacity: 1 !important;
+            font-weight: 500 !important;
+        }
+
+        div[data-baseweb="input"] button,
+        [data-testid="stNumberInput"] button {
+            color: #172033 !important;
+            -webkit-text-fill-color: #172033 !important;
+            background: transparent !important;
+            opacity: 1 !important;
+        }
+
+        div[data-baseweb="input"] button svg,
+        [data-testid="stNumberInput"] button svg {
+            fill: #172033 !important;
+            color: #172033 !important;
+            opacity: 1 !important;
+        }
+
+
+        /* ========================================================
            DROPDOWN MENU
            ======================================================== */
 
